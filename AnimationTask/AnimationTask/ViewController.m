@@ -23,19 +23,19 @@
 
 - (IBAction)compressButtonPressed:(UIButton *)sender {
 
-    [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionAutoreverse animations:^{
-        self.pulseLabel.transform = CGAffineTransformMakeTranslation(100.0, 0.0);
-        self.pulseButton.transform = CGAffineTransformMakeTranslation(100.0, 0.0);
+    [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.compressLabel.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
+        self.compressButton.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
     } completion:^(BOOL finished) {
-        self.pulseLabel.transform = CGAffineTransformIdentity;
-        self.pulseButton.transform = CGAffineTransformIdentity;
+        self.compressLabel.transform = CGAffineTransformIdentity;
+        self.compressButton.transform = CGAffineTransformIdentity;
     }];
     
 }
 
 - (IBAction)pulseButtonPressed:(id)sender {
 
-    [UIView animateWithDuration:2.0 delay:0.0 options:UIViewAnimationOptionAutoreverse animations:^{
+    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionAutoreverse animations:^{
         self.pulseLabel.transform = CGAffineTransformMakeScale(1.2, 1.2);
         self.pulseButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
     } completion:^(BOOL finished) {
