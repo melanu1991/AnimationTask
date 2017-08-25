@@ -8,6 +8,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *pulseButton;
 @property (weak, nonatomic) IBOutlet UILabel *shakeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *shakeButton;
+@property (weak, nonatomic) IBOutlet UIView *squareView;
+@property (strong, nonatomic) UIDynamicAnimator *animator;
+@property (strong, nonatomic) UIGravityBehavior *gravity;
+@property (strong, nonatomic) UICollisionBehavior *collisionBehavior;
 
 @end
 
@@ -20,6 +24,15 @@
 }
 
 #pragma mark - actions
+
+- (IBAction)dynamicAnimationButtonPressed:(UIButton *)sender {
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    self.gravity = [[UIGravityBehavior alloc] initWithItems:@[self.squareView]];
+    [self.animator addBehavior:self.gravity];
+    self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.squareView]];
+    self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    [self.animator addBehavior:self.collisionBehavior];
+}
 
 - (IBAction)compressButtonPressed:(UIButton *)sender {
 
